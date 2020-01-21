@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from .tmdb import TMDB
 
 def home(request):
-    return HttpResponse("hello movies")
+    return render(request, 'moviesapp/home.html', {})
 
 def movies(request):
     tmdb = TMDB()
