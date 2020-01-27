@@ -1,0 +1,16 @@
+{% extends 'moviesapp/home.html' %}
+    {% block content %}
+        {% for result in results %} 
+            <p><img src='http://image.tmdb.org/t/p/w185{{ result.poster_path }}'>
+                <br />{{ result.title }}
+                ({{ result.release_date|slice:"0:4" }})
+            </p>
+        {% endfor %}
+        {% if page > 1 %}
+            <button>previous</button>
+        {% endif %}
+        page: {{ page }} of {{ total_pages }}
+        {% if page < total_pages %}
+            <button type="submit" formaction="hello" value="next">next</button>
+        {% endif %}
+    {% endblock %}

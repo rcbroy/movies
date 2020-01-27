@@ -8,5 +8,14 @@
 </head>
 <body>
     <h3>Movies Home</h3>
+    <div>
+        <form action="{% url 'results' %}">
+            <input type="text" name="query" id="search-input" />
+            <input type="submit" id="search-btn" value="Search" />
+        </form>
+    </div>
+    <br />
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
