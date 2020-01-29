@@ -10,7 +10,9 @@
     <h3>Movies Home</h3>
     <div>
         <form action="{% url 'results' %}">
+        {% csrf_token %}
             <input type="text" name="query" id="search-input" />
+            <input type="hidden" name="page" value="1" />
             <input type="submit" id="search-btn" value="Search" />
         </form>
     </div>

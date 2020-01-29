@@ -1,5 +1,6 @@
 {% extends 'moviesapp/home.html' %}
     {% block content %}
+    <p>Results for <strong>{{ query }} </strong></p>
         {% for result in results %} 
             <p><img src='http://image.tmdb.org/t/p/w185{{ result.poster_path }}'>
                 <br />{{ result.title }}
@@ -7,10 +8,18 @@
             </p>
         {% endfor %}
         {% if page > 1 %}
-            <button>previous</button>
+            <form action="{% url 'results' %}">
+            <input type="hidden" name="query" value="{{ query }}" />
+            <input type="submit" value="previous" />
+            <input type="hidden" name="page" value="{{ page|add:'-1' }}" />
+            </form>  
         {% endif %}
         page: {{ page }} of {{ total_pages }}
         {% if page < total_pages %}
-            <button type="submit" formaction="hello" value="next">next</button>
+            <form action="{% url 'results' %}">
+            <input type="hidden" name="query" value="{{ query }}" />
+            <input type="submit" value="next" />
+            <input type="hidden" name="page" value="{{ page|add:'1' }}" />
+            </form>
         {% endif %}
     {% endblock %}

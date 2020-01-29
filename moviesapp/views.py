@@ -15,5 +15,7 @@ def movies(request):
 
 def results(request):
     query = request.GET['query']
-    response = tmdb.movie_search(query)
+    page = request.GET['page']
+    response = tmdb.movie_search(query, page)
+    response['query'] = query
     return render(request, 'moviesapp/results.html', response)
