@@ -6,8 +6,10 @@ class TMDB:
         self._API_KEY = key.API_KEY
         self.base_url = "https://api.themoviedb.org/3"
 
-    def _tmdb_request(self, search_url, query="", page=1):
-        request_url = self.base_url + search_url
+    def _tmdb_request(self, request_type, query="", page=1):
+        """
+        """
+        request_url = self.base_url + request_type
         payload = {'api_key': self._API_KEY}
         if query:
             payload['query'] = query
@@ -15,6 +17,11 @@ class TMDB:
         response = requests.get(request_url, params=payload)
         return response.json()
 
+    def now_playing(self, page=1):
+        request_type = "/movie/now_playing"
+        response = self._tmdb_request(request_type)
+        return response
+        
     def _search(self, search_type, query, page):
         search_url = '/search/' + search_type
         response = self._tmdb_request(search_url, query, page)

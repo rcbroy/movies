@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MovieApp</title>
+</head>
+<body>
+    <h3><a href="{% url 'home' %}">Movies Home</a></h3>
+    <div>
+        <form id="search-form" action="{% url 'results' %}">
+            <input type="text" name="query" id="search-input" />
+            <input id="page" type="hidden" name="page" value="1" />
+            <input type="submit" id="search-btn" value="Search" />
+        </form>
+    </div>
+    <br />
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

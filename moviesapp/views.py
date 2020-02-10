@@ -4,7 +4,8 @@ from .tmdb import TMDB
 
 tmdb = TMDB()
 def home(request):
-    return render(request, 'moviesapp/home.html', {})
+    response = tmdb.now_playing()
+    return render(request, 'moviesapp/home.html', response)
 
 def movies(request):
     results = tmdb.movie_search("star wars")
