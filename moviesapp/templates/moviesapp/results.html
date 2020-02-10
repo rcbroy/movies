@@ -16,10 +16,19 @@
         {% endif %}
         page: {{ page }} of {{ total_pages }}
         {% if page < total_pages %}
-            <form action="{% url 'results' %}">
+            <button id="next-btn">next</button>
+            <!--form action="{% url 'results' %}">
             <input type="hidden" name="query" value="{{ query }}" />
             <input type="submit" value="next" />
             <input type="hidden" name="page" value="{{ page|add:'1' }}" />
-            </form>
+            </form-->
         {% endif %}
+        <script>
+            console.log("query: " + "{{ query }}");
+            document.getElementById("next-btn").addEventListener("click",
+            function() {
+                console.log("button clicked");
+                console.log("function not implemented");
+            });
+        </script>
     {% endblock %}

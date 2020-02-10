@@ -7,12 +7,11 @@
     <title>MovieApp</title>
 </head>
 <body>
-    <h3>Movies Home</h3>
+    <h3><a href="{% url 'home' %}">Movies Home</a></h3>
     <div>
-        <form action="{% url 'results' %}">
-        {% csrf_token %}
+        <form id="search-form" action="{% url 'results' %}">
             <input type="text" name="query" id="search-input" />
-            <input type="hidden" name="page" value="1" />
+            <input id="page" type="hidden" name="page" value="1" />
             <input type="submit" id="search-btn" value="Search" />
         </form>
     </div>
