@@ -1,7 +1,7 @@
 asgiref==3.2.3
 certifi==2023.7.22
 chardet==3.0.4
-Django==3.1.14
+Django==3.2.25
 idna==3.7
 pytz==2019.3
 requests==2.31.0
